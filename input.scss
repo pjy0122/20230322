@@ -1,3 +1,51 @@
-h1 {
-    background-color: pink;
+body {
+    margin: 0;
+    background-color: lightblue;
+    color: rgb(22, 22, 22);
+}
+
+.bgVideo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+}
+
+main{
+    position: fixed;
+    z-index: 2;
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.time {
+    font-size: 120px;
+    font-weight: bold;
+    color: rgba(245, 245, 245, 0);
+    // background-color: rgba(251, 240, 22, 0.1);
+    
+    // border: 1px solid none;
+    border-radius: 20px;
+    // padding: 50px 30px 2px 30px;
+    -webkit-text-stroke-color: rgb(76, 90, 218);
+    -webkit-text-stroke-width: 5px;
+}
+
+.lion {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 999;
+}
+
+.lion img {
+    width: 100px;
+    height: 100px;
 }
