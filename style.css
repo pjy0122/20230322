@@ -23,14 +23,36 @@ main {
   justify-content: center;
   align-items: center;
 }
-
-.time {
+main .time {
   font-size: 120px;
   font-weight: bold;
   color: rgba(245, 245, 245, 0);
   border-radius: 20px;
-  -webkit-text-stroke-color: rgb(76, 90, 218);
+  -webkit-text-stroke-color: rgb(251, 240, 22);
   -webkit-text-stroke-width: 5px;
+}
+main .quotes {
+  position: relative;
+  font-size: 60px;
+}
+main .quotes .quotesMsg {
+  color: crimson;
+  font-weight: 600;
+  -webkit-text-stroke-color: wheat;
+  -webkit-text-stroke-width: 2px;
+}
+main .quotes .quotesAddBtn {
+  display: none;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+}
+main .quotes:hover .quotesAddBtn {
+  display: inline-block;
+}
+main .newQuotes {
+  display: none;
 }
 
 .lion {
