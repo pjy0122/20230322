@@ -122,6 +122,12 @@ async function onClickSearch() {
 
   if(response.status === 200) {
     searchResult.style.display = "inline";
+    searchResult.style.color = "whitesmoke";
+    searchResult.style.fontSize = "50px";
+    searchResult.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+    searchResult.style.border = "5px solid crimson";
+    searchResult.style.borderRadius = "10px";
+    searchResult.style.padding = "20px";
     searchResult.innerText = response.data.choices[0].message.content;
   }
 

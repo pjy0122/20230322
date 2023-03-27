@@ -10,6 +10,7 @@ body {
   margin: 0;
   background-color: lightblue;
   color: rgb(22, 22, 22);
+  font-family: "jua", sans-serif;
 }
 
 .bgVideo {
@@ -32,22 +33,22 @@ main {
   align-items: center;
 }
 main .time {
-  font-size: 120px;
+  font-size: 100px;
   font-weight: bold;
-  color: rgba(245, 245, 245, 0);
-  border-radius: 20px;
-  -webkit-text-stroke-color: rgb(251, 240, 22);
-  -webkit-text-stroke-width: 5px;
+  color: black;
+  margin-bottom: 50px;
+  -webkit-text-stroke-color: deeppink;
+  -webkit-text-stroke-width: 2px;
 }
 main .quotes {
   position: relative;
-  font-size: 60px;
+  font-size: 100px;
 }
 main .quotes .quotesMsg {
-  color: crimson;
+  color: blue;
   font-weight: 600;
-  -webkit-text-stroke-color: wheat;
-  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: whitesmoke;
+  -webkit-text-stroke-width: 1px;
 }
 main .quotes .quotesAddBtn {
   display: none;
@@ -63,21 +64,106 @@ main .newQuotes {
   display: none;
 }
 
+.search .searchTitle {
+  width: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
 .search .searchLogo {
-  width: 32px;
-  height: 32px;
-  animation: spin 20s linear infinite;
+  width: 100px;
+  height: 100px;
+  animation: spin 1s ease-in-out alternate-reverse infinite;
+}
+.search .gpttext {
+  width: 800px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 50px;
+  font-weight: 300;
+  letter-spacing: 5px;
+  color: gold;
+}
+
+.searchForm {
+  width: 1200px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.searchForm .searchInput {
+  width: 600px;
+  height: 50px;
+  background-color: rgba(127, 255, 212, 0.7);
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+.searchForm .searchButton {
+  width: 100px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  border: 3px solid rgba(127, 255, 212, 0.5);
+  margin-left: 10px;
+  cursor: pointer;
+}
+.searchForm .searchButton:hover {
+  background-color: crimson;
+  border: 3px solid rgb(127, 255, 212);
+}
+.searchForm .searchButton > img {
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
 }
 
 .searchResult {
   display: none;
 }
 
+@keyframes slide {
+  0% {
+    left: 0;
+  }
+  30% {
+    left: 0;
+  }
+  35% {
+    left: -256px;
+  }
+  65% {
+    left: -256px;
+  }
+  70% {
+    left: -512px;
+  }
+  95% {
+    left: -512px;
+  }
+  100% {
+    left: 0;
+  }
+}
 .nft {
   position: fixed;
+  width: 256px;
+  height: 256px;
   top: 0;
   right: 0;
   margin: 24px;
+  overflow: hidden;
+}
+.nft div {
+  width: 768px;
+  font-size: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  animation: slide 10s linear infinite;
 }
 .nft img {
   width: 256px;
@@ -92,22 +178,39 @@ main .newQuotes {
   left: 0;
   background-color: rgba(0, 0, 0, 0.5);
 }
-.nft .nftHover a {
-  color: white;
-}
-.nft .nftHover button {
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: -8px;
-  border-radius: 9999px;
-  width: 24px;
-  height: 24px;
-}
 .nft:hover .nftHover {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.nftMore {
+  position: fixed;
+  text-align: center;
+  top: 130px;
+  right: 105px;
+  z-index: 999;
+}
+
+.nftMore a {
+  font-size: 30px;
+  color: whitesmoke;
+}
+
+.nftXbtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  margin: -8px;
+  border-radius: 9999px;
+  background-color: crimson;
+  border: 3px solid cyan;
+  color: gold;
+  font-size: 24px;
+  font-weight: bold;
+  width: 50px;
+  height: 50px;
+  position: fixed;
 }
 
 .nftView {
@@ -116,6 +219,10 @@ main .newQuotes {
   right: 0;
   margin: 24px;
   display: none;
+  width: 80px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 5px;
 }
 
 /*# sourceMappingURL=style.css.map */
