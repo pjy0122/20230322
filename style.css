@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @keyframes spin {
   from {
     transform: rotate(0deg);
@@ -34,34 +35,82 @@ main {
 }
 main .time {
   font-size: 100px;
-  font-weight: bold;
-  color: black;
-  margin-bottom: 50px;
-  -webkit-text-stroke-color: deeppink;
-  -webkit-text-stroke-width: 2px;
+  font-weight: normal;
+  color: #fff;
+  animation: flicker 1.5s infinite alternate;
+}
+@keyframes flicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #0fa, 0 0 80px #0fa, 0 0 90px #0fa, 0 0 100px #0fa, 0 0 150px #0fa;
+  }
+  20%, 24%, 55% {
+    text-shadow: none;
+  }
 }
 main .quotes {
   position: relative;
   font-size: 100px;
 }
 main .quotes .quotesMsg {
-  color: blue;
-  font-weight: 600;
   -webkit-text-stroke-color: whitesmoke;
-  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-width: 3px;
+  background: linear-gradient(to right, rgb(254, 99, 127), #e1e198);
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 50px;
 }
 main .quotes .quotesAddBtn {
   display: none;
+  width: 300px;
+  height: 50px;
   position: absolute;
   top: 50%;
   right: 50%;
   transform: translate(50%, -50%);
+  margin-top: 50px;
+  background-color: rgba(11, 48, 211, 0.3);
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 5px;
+  color: whitesmoke;
+  cursor: pointer;
 }
 main .quotes:hover .quotesAddBtn {
   display: inline-block;
 }
 main .newQuotes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   display: none;
+}
+main .newQuotes .newQuotesInput {
+  width: 600px;
+  height: 50px;
+  background-color: rgba(11, 48, 211, 0.7);
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 5px;
+  color: whitesmoke;
+}
+main .newQuotes .newQuotesButton {
+  width: 100px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  border: 3px solid rgba(11, 48, 211, 0.7);
+  margin-left: 5px;
+  margin-top: 5px;
+  cursor: pointer;
+  color: whitesmoke;
+  font-size: 24px;
+  text-align: center;
+  line-height: 24px;
+  font-weight: bold;
+}
+main .newQuotes .newQuotesButton:hover {
+  background-color: rgb(245, 123, 24);
+  border: 3px solid rgb(11, 48, 211);
 }
 
 .search .searchTitle {
@@ -77,15 +126,36 @@ main .newQuotes {
   animation: spin 1s ease-in-out alternate-reverse infinite;
 }
 .search .gpttext {
-  width: 800px;
-  height: 30px;
-  line-height: 30px;
+  width: 720px;
+  height: 50px;
+  line-height: 50px;
   font-size: 50px;
   font-weight: 300;
   letter-spacing: 5px;
+  white-space: nowrap;
+  color: transparent;
+  position: relative;
+}
+.search .gpttext::before {
+  content: "Chat GPT 무엇이든 물어보세요!";
+  position: absolute;
   color: gold;
+  overflow: hidden;
+  border-right: 1px solid white;
+  animation: typing 5s steps(33) infinite;
 }
 
+@keyframes typing {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+  }
+}
 .searchForm {
   width: 1200px;
   height: 100px;
@@ -148,7 +218,7 @@ main .newQuotes {
   }
 }
 .nft {
-  position: fixed;
+  position: absolute;
   width: 256px;
   height: 256px;
   top: 0;
@@ -168,49 +238,57 @@ main .newQuotes {
 .nft img {
   width: 256px;
   height: 256px;
+  border-radius: 10px;
 }
 .nft .nftHover {
-  position: absolute;
+  position: fixed;
   display: none;
-  width: 256px;
+  width: 768px;
   height: 256px;
   top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  right: 0;
 }
 .nft:hover .nftHover {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.nft:hover .nftMore {
+  position: absolute;
+  width: 768px;
+  height: 256px;
+  text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
-.nftMore {
-  position: fixed;
-  text-align: center;
-  top: 130px;
-  right: 105px;
-  z-index: 999;
-}
-
-.nftMore a {
+.nft:hover .nftMore a {
+  width: 768px;
   font-size: 30px;
   color: whitesmoke;
 }
 
 .nftXbtn {
-  position: absolute;
   top: 20px;
   right: 20px;
   margin: -8px;
   border-radius: 9999px;
   background-color: crimson;
-  border: 3px solid cyan;
+  border: 2px solid cyan;
   color: gold;
-  font-size: 24px;
+  font-size: 30px;
   font-weight: bold;
   width: 50px;
   height: 50px;
   position: fixed;
+}
+.nftXbtn:hover {
+  border: none;
+  text-shadow: 0 0 5px #fff, 0 0 8px #fff, 0 0 19px #fff, 0 0 40px crimson, 0 0 50px crimson, 0 0 60px crimson, 0 0 70px crimson, 0 0 80px crimson;
 }
 
 .nftView {
@@ -219,10 +297,25 @@ main .newQuotes {
   right: 0;
   margin: 24px;
   display: none;
-  width: 80px;
-  height: 50px;
-  line-height: 50px;
+  width: 120px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
   border-radius: 5px;
+  font-size: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: whitesmoke;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.nftView:hover {
+  font-size: 22px;
+  text-align: center;
+  color: whitesmoke;
+  font-weight: bold;
+  border: 1px solid #0fa;
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px crimson, 0 0 82px crimson, 0 0 92px crimson, 0 0 102px crimson, 0 0 151px crimson;
+  box-sizing: border-box;
 }
 
 /*# sourceMappingURL=style.css.map */
