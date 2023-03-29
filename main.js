@@ -1,5 +1,19 @@
 const QUOTES = "quotes";
 
+function getDate() {
+  const date = document.querySelector(".date");
+
+  const newDate = new Date();
+
+  const years = String(newDate.getFullYear());
+  const month = String(newDate.getMonth() + 1).padStart(2, "0");
+  const dates = String(newDate.getDate()).padStart(2, "0");
+
+  date.innerText = `${years}년${month}월${dates}일`;
+}
+
+getDate();
+
 function getTime() {
   const time = document.querySelector(".time");
   // 실무 js에서 많이 쓰는 querySelector
@@ -31,10 +45,10 @@ function getQuotes() {
     localStorage.setItem(
       QUOTES,
       JSON.stringify([
-        "열심히 살지맙시다.",
-        "그래도 열심히 살아야지.",
-        "열심히 살면 뭐해~",
-        "열심히 살면 반드시 빛이 온다.",
+        `"기회를 찾아야 기회를 만든다."`,
+        '"꺼지지 않을 불길로 타올라라."',
+        `"기회 없는 능력은 쓸모가 없다."`,
+        `"인격은 그 사람의 운명이다."`,
       ])
     );
 
@@ -53,6 +67,17 @@ function onClickAdd() {
   const newQuotes = document.querySelector(".newQuotes");
 
   newQuotes.style.display = "inline-block";
+}
+
+function onClickDel() {
+  const newQuotesInput = document.querySelector(".newQuotesInput");
+
+  let savedQuotes = localStorage.getItem(QUOTES);
+
+  let quotesArray = JSON.parse(savedQuotes);
+  quotesArray.pop(newQuotesInput.value);
+
+  localStorage.setItem(QUOTES, JSON.stringify(quotesArray));
 }
 
 function onClickRegist() {
@@ -150,3 +175,58 @@ function onClickToggle(value) {
 
   
 }
+
+const API_KEY = "94a0c6959e8c5222105f46c17250d237";
+
+const weatherIcon = document.querySelector(".weatherIcon");
+const weatherTemp = document.querySelector(".weatherTemp");
+
+navigator.geolocation.getCurrentPosition(
+  (position) => {
+    const lat = position.coords.latitude;
+    const lon = position.coords.longitude;
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
+
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        // console.log(data);
+        weatherTemp.innerText =
+          data.name + ", " + parseInt(data.main.temp) + "℃";
+
+        // weatherIcon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+        weatherIcon.src =
+          "https://openweathermap.org/img/wn/" +
+          data.weather[0].icon +
+          "@2x.png";
+
+        // ↑ 위에 둘중 하나 중에 사용하면 됨
+      });
+  },
+  () => alert("Not allowed!")
+);
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  let quotesM = document.querySelector('.quotesMsg'),
+      quotesB = document.querySelector('.quotesBtnAll');
+      quotesN = document.querySelector('.newQuotes');
+  
+
+  quotesM.addEventListener('click', () => {
+      
+      quotesB.style.display = "none"
+      quotesN.style.display = "none"
+  });
+
+  quotesM.addEventListener('mouseover', () => {
+
+    quotesB.style.display = "block"
+
+  });
+
+
+})

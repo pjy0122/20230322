@@ -39,16 +39,6 @@ main {
     font-weight: normal;
     color: #fff;
     animation: flicker 1.5s infinite alternate;
-    // text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #0fa,
-    // 0 0 82px #0fa, 0 0 92px #0fa, 0 0 102px #0fa, 0 0 151px #0fa;;
-    // margin-bottom: 50px;
-    // background-color: rgba(251, 240, 22, 0.1);
-
-    // border: 1px solid none;
-    // border-radius: 20px;
-    // padding: 50px 30px 2px 30px;
-    // -webkit-text-stroke-color: deeppink;
-    // -webkit-text-stroke-width: 2px;
   }
 
   @keyframes flicker {
@@ -83,15 +73,20 @@ main {
       margin-bottom: 50px;
     }
 
+    .quotesBtnAll {
+      width: 300px;
+      margin-top: 20px;
+    }
+
     .quotesAddBtn {
       display: none;
-      width: 300px;
+      width: 250px;
       height: 50px;
       position: absolute;
       top: 50%;
-      right: 50%;
-      transform: translate(50%, -50%);
-      margin-top: 50px;
+      left: 35%;
+      transform: translate(-50%, -50%);
+      margin-top: 70px;
       background-color: rgba(11, 48, 211, 0.3);
       font-size: 24px;
       font-weight: bold;
@@ -104,16 +99,36 @@ main {
       .quotesAddBtn {
         display: inline-block;
       }
+
+      .quotesDelBtn {
+        display: inline-block;
+      }
+    }
+
+    .quotesDelBtn {
+      display: none;
+      width: 250px;
+      height: 50px;
+      position: absolute;
+      top: 50%;
+      left: 65%;
+      transform: translate(-50%, -50%);
+      margin-top: 70px;
+      background-color: rgba(211, 11, 28, 0.3);
+      font-size: 24px;
+      font-weight: bold;
+      border-radius: 5px;
+      color: whitesmoke;
+      cursor: pointer;
     }
   }
 
   .newQuotes {
-    // width: 1200px;
-    // height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
     display: none;
+    margin-top: 10px;
 
     .newQuotesInput {
       width: 600px;
@@ -144,7 +159,6 @@ main {
       &:hover {
         background-color: rgb(245, 123, 24);
         border: 3px solid rgb(11, 48, 211);
-        // border: 3px solid rgb(128, 128, 128);
       }
     }
   }
@@ -163,20 +177,18 @@ main {
   .searchLogo {
     width: 100px;
     height: 100px;
-
-    // background-color: blueviolet;
     animation: spin 1s ease-in-out alternate-reverse infinite;
+    // ease-in-out: 느리게-빠르게-느리게
+    // alternate-reverse: 역방향 -> 정방향 반복
   }
 
   .gpttext {
     width: 720px;
     height: 50px;
     line-height: 50px;
-    // background-color: aqua;
     font-size: 50px;
     font-weight: 300;
     letter-spacing: 5px;
-    // color: gold;
     white-space: nowrap;
     color: transparent;
     position: relative;
@@ -185,10 +197,6 @@ main {
   .gpttext::before {
     content: "Chat GPT 무엇이든 물어보세요!";
     position: absolute;
-    // top: 0;
-    // left: 0;
-    // width: 90%;
-    // height: 100%;
     color: gold;
     overflow: hidden;
     border-right: 1px solid white;
@@ -214,7 +222,6 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  // background-color: chartreuse;
 
   .searchInput {
     width: 600px;
@@ -229,9 +236,6 @@ main {
     width: 100px;
     height: 50px;
     background-color: rgba(0, 0, 0, 0.5);
-    // font-size: 24px;
-    // font-weight: bold;
-    // color: whitesmoke;
     border-radius: 5px;
     border: 3px solid rgb(127, 255, 212, 0.5);
     margin-left: 10px;
@@ -240,7 +244,6 @@ main {
     &:hover {
       background-color: crimson;
       border: 3px solid rgb(127, 255, 212);
-      // border: 3px solid rgb(128, 128, 128);
     }
   }
 
@@ -311,11 +314,6 @@ main {
     height: 256px;
     top: 0;
     right: 0;
-
-    // top: 0;
-    // right: 0;
-    // margin: 24px;
-    // background-color: rgba(0, 0, 0, 0.5);
   }
 
   &:hover {
@@ -323,7 +321,6 @@ main {
       position: absolute;
       top: 0;
       right: 0;
-      // margin: 24px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -332,108 +329,25 @@ main {
 
     .nftMore {
       position: absolute;
-      // width: 256px;
-      // height: 256px;
-      // line-height: 256px;
       width: 768px;
       height: 256px;
-      // line-height: 100px;
       text-align: center;
       display: flex;
       justify-content: center;
       align-items: center;
-      // top: 200px;
-      // right: 200px;
-      // background-color: rgba(0, 0, 0, 0.5);
-      // margin: 24px;
-      // z-index: 999;
-      // display: none;
-      // background-color: rgba(0, 0, 0, 0.5);
     }
 
     .nftMore a {
       width: 768px;
       font-size: 30px;
       color: whitesmoke;
-      // position: absolute;
-      // width: 90px;
-      // height: 90px;
-      // line-height: 90px;
-      // text-align: center;
-      // padding: 20px;
-      // border: 5px dotted cyan;
-      // border-radius: 9999px;
-      // display: none;
     }
   }
 
-  // .nftMore {
-  //   position: fixed;
-  //   // width: 256px;
-  //   // height: 256px;
-  //   // line-height: 256px;
-  //   text-align: center;
-  //   top: 0;
-  //   right: 0;
-  //   // margin: 24px;
-  //   // z-index: 999;
-  //   // display: none;
-  //   // background-color: rgba(0, 0, 0, 0.5);
-  // }
-
-  // .nftMore a {
-  //   font-size: 30px;
-  //   color: whitesmoke;
-  //   // position: absolute;
-  //   // width: 90px;
-  //   // height: 90px;
-  //   // line-height: 90px;
-  //   // text-align: center;
-  //   // padding: 20px;
-  //   // border: 5px dotted cyan;
-  //   // border-radius: 9999px;
-  //   // display: none;
-  // }
 }
 
-// .nftMore {
-//   position: absolute;
-//   // width: 256px;
-//   // height: 256px;
-//   // line-height: 256px;
-//   width: 768px;
-//   height: 256px;
-//   // line-height: 100px;
-//   text-align: center;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   // top: 200px;
-//   // right: 200px;
-//   // background-color: rgba(0, 0, 0, 0.5);
-//   // margin: 24px;
-//   // z-index: 999;
-//   // display: none;
-//   // background-color: rgba(0, 0, 0, 0.5);
-// }
-
-// .nftMore a {
-
-//   font-size: 30px;
-//   color: whitesmoke;
-//   // position: absolute;
-//   // width: 90px;
-//   // height: 90px;
-//   // line-height: 90px;
-//   // text-align: center;
-//   // padding: 20px;
-//   // border: 5px dotted cyan;
-//   // border-radius: 9999px;
-//   // display: none;
-// }
-
 .nftXbtn {
-  // position: absolute;
+
   top: 20px;
   right: 20px;
   margin: -8px;
@@ -446,7 +360,6 @@ main {
   width: 50px;
   height: 50px;
   position: fixed;
-  // line-height: 50px;
 
   &:hover {
     border: none;
@@ -482,4 +395,36 @@ main {
       0 0 82px crimson, 0 0 92px crimson, 0 0 102px crimson, 0 0 151px crimson;
     box-sizing: border-box;
   }
+}
+
+.weather {
+  width: 160px;
+  position: fixed;
+  text-align: center;
+  top: 40px;
+  left: 50px;
+}
+
+.weatherIcon {
+  width: 100px;
+}
+
+.weatherTemp {
+  color: whitesmoke;
+  font-size: 24px;
+  width: 160px;
+  background-color: rgba(25, 86, 253, 0.7);
+  border-radius: 5px;
+}
+
+.date {
+  width: 250px;
+  height: 40px;
+  line-height: 40px;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  color: whitesmoke;
+  font-size: 30px;
+  text-align: center;
 }
